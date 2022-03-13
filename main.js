@@ -23,3 +23,8 @@ fetch("https://test.api.amadeus.com/v1/security/oauth2/token", {
     console.error(error);
 });
  
+
+
+fetch('./airports.json')
+.then(res => res.json())
+.then(data => console.log(data["MAD"]));
