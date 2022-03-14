@@ -1,6 +1,5 @@
 "use strict";
 
-
 //Autorizacion de API buscador de vuelos de Amadeus
 fetch("https://test.api.amadeus.com/v1/security/oauth2/token", {
   method: "POST",
@@ -25,25 +24,23 @@ fetch("https://test.api.amadeus.com/v1/security/oauth2/token", {
     console.error(error);
   });
 
-
-
-  //Validation function
+//Validation function
 function validateIataCode(airports, code) {
-  try{
+  try {
     if (code.length !== 3) {
       throw new Error("El código debe tener tres letras");
     }
     if (code in airports) {
       return true;
-    } 
-    if (code !== NaN ){
-      throw new Error("El código solo puede tener letras")
-    } 
-    else {
-      throw new Error("El código introducido no corresponde a ningún aeropueto");
     }
-
-  } catch (e){
+    if (code !== NaN) {
+      throw new Error("El código solo puede tener letras");
+    } else {
+      throw new Error(
+        "El código introducido no corresponde a ningún aeropueto"
+      );
+    }
+  } catch (e) {
     console.error("Se ha producido un error " + e.message);
   }
 }
@@ -54,9 +51,23 @@ fetch("./airports.json")
     console.log(validateIataCode(airports, "MAD"));
     console.log(airports["MAD"]);
     const code = "MAD";
-    const isCodeIataValid = validateIataCode(airports,code);
-    if (isCodeIataValid ===true){
+    const isCodeIataValid = validateIataCode(airports, code);
+    if (isCodeIataValid === true) {
       console.log(airports[code]);
     }
-    
   });
+
+//forms
+
+
+function printAeropuertos(e) {
+  e.preventDefault();
+  console.log(origen.value);
+  console.log(destino.value);
+  this.reset();
+}
+
+const flightsForm = document.querySelector(".flightsForm");
+const { origen, destino } = flightsForm.elements;
+
+flightsForm.addEventListener("submit", printAeropuertos);
