@@ -40,13 +40,6 @@ function validateIataCode(airports, code) {
         "El código introducido no corresponde a ningún aeropueto"
       );
     }
-    if (code !== NaN) {
-      throw new Error("El código solo puede tener letras");
-    } else {
-      throw new Error(
-        "El código introducido no corresponde a ningún aeropueto"
-      );
-    }
   } catch (e) {
     console.error("Se ha producido un error " + e.message);
   }
@@ -68,12 +61,35 @@ fetch("./airports.json")
 //Forms
 function printAeropuertos(e) {
   e.preventDefault();
-  console.log(origen.value);
-  console.log(destino.value);
+  console.log(origenInput.value);
+  console.log(destinoInput.value);
+
+  const originAirportIata = origenInput.value.toUpperCase();
+  const destinationAirportIata = destinoInput.value.toUpperCase();
+  const originAirport = document.querySelector(".origin");
+  const destinationAirport = document.querySelector(".destination");
+
+  fetch("./airports.json")
+    .then((res) => res.json())
+    .then((airports) => {
+      console.log(validateIataCode(airports, "SCQ"));
+      console.log(airports["SCQ"]);
+      const code = "SCQ";
+      const isCodeIataValid = validateIataCode(airports, "SCQ");
+
+      if (isCodeIataValid === true) {
+        console.log(airports[code]);
+      }
+      originAirport.innerText = airports[originAirportIata];
+      destinationAirport.innerText = airports[destinationAirportIata];
+    });
+
   this.reset();
 }
 
 const flightsForm = document.querySelector(".flightsForm");
-const { origen, destino } = flightsForm.elements;
+const { origen: origenInput, destino: destinoInput } = flightsForm.elements;
 
 flightsForm.addEventListener("submit", printAeropuertos);
+
+//dynamic h2
