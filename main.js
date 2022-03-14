@@ -1,5 +1,5 @@
 "use strict";
-console.log("hello world");
+
 
 //Autorizacion de API buscador de vuelos de Amadeus
 fetch("https://test.api.amadeus.com/v1/security/oauth2/token", {
@@ -51,10 +51,10 @@ function validateIataCode(airports, code) {
 fetch("./airports.json")
   .then((res) => res.json())
   .then((airports) => {
-    console.log(validateIataCode(airports, "123"));
-    console.log(airports["123"]);
-    const code = "123";
-    const isCodeIataValid = validateIataCode(airports,"123");
+    console.log(validateIataCode(airports, "MAD"));
+    console.log(airports["MAD"]);
+    const code = "MAD";
+    const isCodeIataValid = validateIataCode(airports,code);
     if (isCodeIataValid ===true){
       console.log(airports[code]);
     }
