@@ -37,7 +37,7 @@ function validateIataCode(airports, code) {
       return true;
     } 
     if (code !== NaN ){
-      throw new Error("El código solo puede tener letras")
+      throw new Error("El código solo puede tener letras") 
     } 
     else {
       throw new Error("El código introducido no corresponde a ningún aeropueto");
@@ -51,12 +51,26 @@ function validateIataCode(airports, code) {
 fetch("./airports.json")
   .then((res) => res.json())
   .then((airports) => {
-    console.log(validateIataCode(airports, "123"));
-    console.log(airports["123"]);
-    const code = "123";
-    const isCodeIataValid = validateIataCode(airports,"123");
+    console.log(validateIataCode(airports, "SCQ"));
+    console.log(airports["SCQ"]);
+    const code = "SCQ";
+    const isCodeIataValid = validateIataCode(airports,"SCQ");
     if (isCodeIataValid ===true){
       console.log(airports[code]);
     }
     
   });
+
+
+  const form = document.querySelector("form")
+  const {origen, destino} = form.elements
+  
+  function printAeropuertos(e){
+    e.preventDefault()
+    console.log(origen.value);
+    console.log(destino.value);
+    form.reset()
+  }
+  // No soy capaz de que me funcione el botón
+  
+  form.addEventListener("submit", printAeropuertos)
