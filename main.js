@@ -40,6 +40,13 @@ function validateIataCode(airports, code) {
         "El código introducido no corresponde a ningún aeropueto"
       );
     }
+    if (code !== NaN) {
+      throw new Error("El código solo puede tener letras");
+    } else {
+      throw new Error(
+        "El código introducido no corresponde a ningún aeropueto"
+      );
+    }
   } catch (e) {
     console.error("Se ha producido un error " + e.message);
   }
@@ -48,18 +55,17 @@ function validateIataCode(airports, code) {
 fetch("./airports.json")
   .then((res) => res.json())
   .then((airports) => {
-    console.log(validateIataCode(airports, "MAD"));
-    console.log(airports["MAD"]);
-    const code = "MAD";
-    const isCodeIataValid = validateIataCode(airports, code);
+    console.log(validateIataCode(airports, "SCQ"));
+    console.log(airports["SCQ"]);
+    const code = "SCQ";
+    const isCodeIataValid = validateIataCode(airports, "SCQ");
+
     if (isCodeIataValid === true) {
       console.log(airports[code]);
     }
   });
 
-//forms
-
-
+//Forms
 function printAeropuertos(e) {
   e.preventDefault();
   console.log(origen.value);
