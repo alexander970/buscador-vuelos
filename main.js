@@ -25,50 +25,42 @@ fetch("https://test.api.amadeus.com/v1/security/oauth2/token", {
     console.error(error);
   });
 
-
-
+  
   //Validation function
-function validateIataCode(airports, code) {
-  try{
-    if (code.length !== 3) {
-      throw new Error("El código debe tener tres letras");
+  function validateIataCode(airports, code) {
+    try{
+      if (code.length !== 3) {
+        throw new Error("El código debe tener tres letras");
+      } 
+      if (code in airports) {
+        return true;
+      } 
+      if (code !== NaN ){
+        throw new Error("El código solo puede tener letras") 
+      } 
+      else {
+        throw new Error("El código introducido no corresponde a ningún aeropueto");
+      }
+      
+    } catch (e){
+      console.error("Se ha producido un error " + e.message);
     }
-    if (code in airports) {
-      return true;
-    } 
-    if (code !== NaN ){
-      throw new Error("El código solo puede tener letras") 
-    } 
-    else {
-      throw new Error("El código introducido no corresponde a ningún aeropueto");
-    }
-
-  } catch (e){
-    console.error("Se ha producido un error " + e.message);
   }
-}
-
-fetch("./airports.json")
+  
+  fetch("./airports.json")
   .then((res) => res.json())
   .then((airports) => {
-<<<<<<< HEAD
-    console.log(validateIataCode(airports, "SCQ"));
-    console.log(airports["SCQ"]);
-    const code = "SCQ";
-    const isCodeIataValid = validateIataCode(airports,"SCQ");
-=======
-    console.log(validateIataCode(airports, "MAD"));
-    console.log(airports["MAD"]);
-    const code = "MAD";
-    const isCodeIataValid = validateIataCode(airports,code);
->>>>>>> 5fb83a0cfd4d5aea0367f8a482c4294bd14673f2
+    console.log(validateIataCode(airports, "BCN"));
+    console.log(airports["BCN"]);
+    const code = "BCN";
+    const isCodeIataValid = validateIataCode(airports,"BCN");
     if (isCodeIataValid ===true){
       console.log(airports[code]);
     }
     
   });
-
-
+  
+  
   const form = document.querySelector("form")
   const {origen, destino} = form.elements
   
@@ -78,6 +70,13 @@ fetch("./airports.json")
     console.log(destino.value);
     form.reset()
   }
-  // No soy capaz de que me funcione el botón
+ form.addEventListener("submit", printAeropuertos)
+
+  const codigoOrigen = origen.value
+  const codigoDestino = destino.value
+
   
-  form.addEventListener("submit", printAeropuertos)
+   
+
+    
+  
