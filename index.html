@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css">
     <title>Buscador de vuelos</title>
   </head>
   <body>
@@ -11,14 +12,27 @@
       <h1>Buscador de Vuelos</h1>
     </header>
     <main>
-      <form method="post">
-        <fieldset>
-          <legend>Title</legend>
-          <label><input type="radio" name="radio"> Select me</label>
-        </fieldset>
-      </form>
+      <section>
+        <!-- Este es el h2 que pensé con el enlace a lanexo de Wiki... lo he comentado para después quitarlo -->
+          <!-- <h2>Selecciona tu aeropuerto de origen y de destino utilizando el código <a href="https://es.wikipedia.org/wiki/Anexo:Aeropuertos_seg%C3%BAn_el_c%C3%B3digo_IATA" target="_blank">IATA</a> </h2> -->
+
+          <form action="">
+            <label for="origen">Aeropuerto de origen</label>
+            <input type="text" id="origen" name="origen" required maxlength="3">
+
+            <label for="destino">Aeropuerto de destino</label>
+            <input type="text" id="destino" name="destino" required maxlength="3">
+
+          </form>
+          <button type="submit">Enviar</button>
+      </section>
     </main>
-    <footer></footer>
-    <script src="main.js"></script>
+    <footer>
+        <a href="">Terminos y condiciones generales</a>
+        <a href="">Uso de cookies</a>
+        <a href="">Política de privacidad</a>
+       
+    </footer>
+    <script src=></script>
   </body>
 </html>
