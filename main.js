@@ -80,8 +80,8 @@ function printAeropuertos(e) {
       if (isCodeIataValid === true) {
         console.log(airports[code]);
       }
-      originAirport.innerText = airports[originAirportIata];
-      destinationAirport.innerText = airports[destinationAirportIata];
+      originAirport.innerText = `Aeropuerto de origen: ${airports[originAirportIata]}`;
+      destinationAirport.innerText = `Aeropuerto de destino: ${airports[destinationAirportIata]}`;
     });
 
   this.reset();
