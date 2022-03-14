@@ -29,23 +29,32 @@ fetch("https://test.api.amadeus.com/v1/security/oauth2/token", {
 
   //Validation function
 function validateIataCode(airports, code) {
-  if (code.length !== 3) {
-    return false;
-  }
-  if (code in airports) {
-    return true;
-  } else {
-    return false;
+  try{
+    if (code.length !== 3) {
+      throw new Error("El código debe tener tres letras");
+    }
+    if (code in airports) {
+      return true;
+    } 
+    if (code !== NaN ){
+      throw new Error("El código solo puede tener letras")
+    } 
+    else {
+      throw new Error("El código introducido no corresponde a ningún aeropueto");
+    }
+
+  } catch (e){
+    console.error("Se ha producido un error " + e.message);
   }
 }
 
 fetch("./airports.json")
   .then((res) => res.json())
   .then((airports) => {
-    console.log(validateIataCode(airports, "MAD"));
-    console.log(airports["MAD"]);
-    const code = "MAD";
-    const isCodeIataValid = validateIataCode(airports,"MAD");
+    console.log(validateIataCode(airports, "123"));
+    console.log(airports["123"]);
+    const code = "123";
+    const isCodeIataValid = validateIataCode(airports,"123");
     if (isCodeIataValid ===true){
       console.log(airports[code]);
     }
