@@ -6,14 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles.css">
     <title>Buscador de vuelos</title>
+    <script src="main.js" defer></script>
   </head>
   <body>
     <header>
-      <h1>Buscador de Vuelos</h1>
+      <h1>Buscador de vuelos</h1>
     </header>
     <main>
       <section>
-          <form action="">
+        <!-- Este es el h2 que pensé con el enlace a lanexo de Wiki... lo he comentado para después quitarlo -->
+          <!-- <h2>Selecciona tu aeropuerto de origen y de destino utilizando el código <a href="https://es.wikipedia.org/wiki/Anexo:Aeropuertos_seg%C3%BAn_el_c%C3%B3digo_IATA" target="_blank">IATA</a> </h2> -->
+
+          <form class="flightsForm">
             <label for="origen">Aeropuerto de origen</label>
             <input type="text" id="origen" name="origen" required maxlength="3" value="">
 
@@ -23,8 +27,8 @@
             <button type="submit">Enviar</button>
             <button type="reset">Limpiar</button>
           </form>
-          <h2>Origen: Alicante International (ALC)</h2>
-          <h2>Destino: Adolfo Suárez Madrid–Barajas (MAD)</h2>
+          <h2 class="origin"></h2>
+          <h2 class="destination"></h2>
          
       </section>
     </main>
@@ -35,6 +39,6 @@
         <h6>A&A2022®</h6>
        
     </footer>
-    <script src="main.js"></script>
+   
   </body>
 </html>
