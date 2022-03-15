@@ -43,7 +43,8 @@ function validateIataCode(airports, code) {
   } catch (e) {
     console.error("Se ha producido un error " + e.message);
   }
-  
+}
+
   fetch("./airports.json")
   .then((res) => res.json())
   .then((airports) => {
