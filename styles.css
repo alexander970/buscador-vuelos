@@ -46,6 +46,7 @@ form > * :not(button){
     grid-column: span 2;
 }
 form>label, form>input{
+    padding: 1rem; 
     display: block;
     width: 100%;
 }
@@ -60,6 +61,14 @@ form button{
     padding: 0.5rem 1rem;
     margin: 0.5rem;
     align-items: flex-end;
+}
+
+h2{
+    padding: 1rem;
+    font-size: 1.5rem;
+    display: grid;
+    grid-row: auto;
+    grid-column: auto;
 }
 
 
