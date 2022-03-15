@@ -11,13 +11,13 @@ html{
 }
 
 body{
-    background-color: rgb(187, 182, 182);
+    background-color: #008E89
 }
 header{
-    background: rgb(4, 4, 4);
-    color: white;
+    background: #FFD32D;
+    color: #084594;
     padding: 2rem;
-    display: grid;
+    display: flex;
     
 }
 
@@ -27,6 +27,14 @@ h1{
     font-size: 3rem;
     align-self: center;
     grid-template-columns: 1fr;
+}
+
+img{
+    width: 4rem;
+    height: 4rem;
+    margin-bottom: 4rem;
+    margin-top: 4rem;
+    align-self: flex-end;
 }
 main{
     max-width: 500px;
@@ -41,6 +49,7 @@ form{
     display: grid;
     grid-row: auto;
     grid-column: auto;
+    color: aliceblue;
 }
 form > * :not(button){
     grid-column: span 2;
@@ -64,23 +73,24 @@ form button{
     border-radius: 10px;
 }
 form button:hover{
-    background-color: grey;
+    background-color: #085E7D;
     color: white;
 }
 
 h2{
     padding: 1rem;
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     display: grid;
     grid-row: auto;
     grid-column: auto;
+    color: aliceblue;
 }
 
 
 footer{
    
         padding: 0.5rem;
-        background: rgb(7, 7, 7);
+        background: #085E7D;
         color: white;
         bottom: 0;
         width: 100vw;
