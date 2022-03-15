@@ -16,25 +16,25 @@ body{
 header{
     background: #FFD32D;
     color: #084594;
-    padding: 2rem;
-    display: flex;
+    padding: 1rem;
+    display: grid;
+    grid-template-columns: 2fr, 1fr;
+    height: 7rem;
     
 }
 
 h1{
-    margin: 1rem;
-    padding: 1rem;
-    font-size: 3rem;
+   
+    font-size: 2rem;
     align-self: center;
-    grid-template-columns: 1fr;
+    grid-column: span 2 / 1;
 }
 
 img{
-    width: 4rem;
-    height: 4rem;
-    margin-bottom: 4rem;
-    margin-top: 4rem;
-    align-self: flex-end;
+    width: 3rem;
+    height: 3rem;
+    margin-top: 1rem;
+    grid-column: 1 / -1;
 }
 main{
     max-width: 500px;
@@ -107,7 +107,7 @@ footer>a{
 
 footer>h6{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 0.5;
+    font-size: 0.25;
     display: flex;
     align-items: flex-end;
 }
