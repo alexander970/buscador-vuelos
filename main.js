@@ -103,7 +103,7 @@ function printAeropuertos(e) {
         console.log(airports[code]);
       }
       const offer = document.querySelector(".offer")
-      offer.innerText = `El vuelo más económico entre ${airports[originAirportIata]} y ${airports[destinationAirportIata]} para mañana es:`
+      offer.innerText = `El vuelo más económico entre ${airports[originAirportIata]} y ${airports[destinationAirportIata]} mañana es:`
       /* originAirport.innerText = `Aeropuerto de origen: ${airports[originAirportIata]}`;
       destinationAirport.innerText = `Aeropuerto de destino: ${airports[destinationAirportIata]}`; */
       loadFlightOffers(originAirportIata, destinationAirportIata);
