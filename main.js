@@ -87,7 +87,7 @@ function validateIataCode(airports, code) {
   }
 }
 
-fetch("./airports.json")
+/* fetch("./airports.json")
   .then((res) => res.json())
   .then((airports) => {
     console.log(validateIataCode(airports, "SCQ"));
@@ -98,7 +98,7 @@ fetch("./airports.json")
     if (isCodeIataValid === true) {
       console.log(airports[code]);
     }
-  });
+  }); */
 
 //Forms
 function printAeropuertos(e) {
@@ -111,13 +111,13 @@ function printAeropuertos(e) {
   const originAirport = document.querySelector(".origin");
   const destinationAirport = document.querySelector(".destination");
 
-  fetch("./airports.json")
+ fetch("./airports.json")
     .then((res) => res.json())
     .then((airports) => {
-      console.log(validateIataCode(airports, "SCQ"));
-      console.log(airports["SCQ"]);
-      const code = "SCQ";
-      const isCodeIataValid = validateIataCode(airports, "SCQ");
+      console.log(validateIataCode(airports, "MAD"));
+      console.log(airports["MAD"]);
+      const code = "MAD";
+      const isCodeIataValid = validateIataCode(airports, "MAD"); 
 
       if (isCodeIataValid === true) {
         console.log(airports[code]);
@@ -128,29 +128,37 @@ function printAeropuertos(e) {
       destinationAirport.innerText = `Aeropuerto de destino: ${airports[destinationAirportIata]}`; */
       loadFlightOffers(originAirportIata, destinationAirportIata);
     });
-
-  this.reset();
-}
-
-const flightsForm = document.querySelector(".flightsForm");
-const { origen: origenInput, destino: destinoInput } = flightsForm.elements;
-
-flightsForm.addEventListener("submit", printAeropuertos);
-
-function displayCheapestFlight(flightOffers) {
-  const flightOffersSorted = [...flightOffers];
-  flightOffersSorted.sort(
-    (offerA, offerB) => offerA.price.grandTotal - offerB.price.grandTotal
-  );
-  const cheapestFlightOffer = flightOffersSorted[0];
-  console.log(cheapestFlightOffer);
-
+    
+    this.reset();
+  }
+  
+  const flightsForm = document.querySelector(".flightsForm");
+  const { origen: origenInput, destino: destinoInput } = flightsForm.elements;
+  
+  flightsForm.addEventListener("submit", printAeropuertos);
+  
+  function displayCheapestFlight(flightOffers) {
+    const flightOffersSorted = [...flightOffers];
+    flightOffersSorted.sort(
+      (offerA, offerB) => offerA.price.grandTotal - offerB.price.grandTotal
+      );
+      const cheapestFlightOffer = flightOffersSorted[0];
+      console.log(cheapestFlightOffer);
+      
+      
+  const time = document.querySelector(".time")
   const airline = document.querySelector(".airline");
   const price = document.querySelector(".price");
   airline.innerText = `Aerolinea: ${cheapestFlightOffer.validatingAirlineCodes[0]}`;
   price.innerText = `Precio: ${cheapestFlightOffer.price.grandTotal} €`;
+  time.innerText = `Horario: ${cheapestFlightOffer.itineraries[0].segments[0].departure.at}`
   
 }
+
+
+
+
+
 
 
 
