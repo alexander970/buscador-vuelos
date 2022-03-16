@@ -125,6 +125,9 @@ function displayCheapestFlight(flightOffers) {
 
   const airline = document.querySelector(".airline");
   const price = document.querySelector(".price");
+  const offer = document.querySelector(".offer");
+  offer.innerText = 'El vuelo más económico para mañana es:'
   airline.innerText = `Aerolinea: ${cheapestFlightOffer.validatingAirlineCodes[0]}`;
   price.innerText = `Precio: ${cheapestFlightOffer.price.grandTotal} €`;
+  
 }
