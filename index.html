@@ -4,42 +4,61 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css" />
     <title>Buscador de vuelos</title>
     <script src="main.js" defer></script>
   </head>
   <body>
     <header>
       <h1>Buscador de vuelos</h1>
-      <img src="./Img/viajar.png" alt="Avión volando entorno al globo">
+      <img src="./Img/viajar.png" alt="Avión volando entorno al globo" />
     </header>
     <main>
       <section>
         <!-- Este es el h2 que pensé con el enlace a lanexo de Wiki... lo he comentado para después quitarlo -->
-          <!-- <h2>Selecciona tu aeropuerto de origen y de destino utilizando el código <a href="https://es.wikipedia.org/wiki/Anexo:Aeropuertos_seg%C3%BAn_el_c%C3%B3digo_IATA" target="_blank">IATA</a> </h2> -->
+        <!-- <h2>Selecciona tu aeropuerto de origen y de destino utilizando el código <a href="https://es.wikipedia.org/wiki/Anexo:Aeropuertos_seg%C3%BAn_el_c%C3%B3digo_IATA" target="_blank">IATA</a> </h2> -->
 
-          <form class="flightsForm">
-            <label for="origen">Aeropuerto de origen</label>
-            <input type="text" id="origen" name="origen" required maxlength="3" value="">
+        <form class="flightsForm">
+          <label for="origen">Aeropuerto de origen</label>
+          <input
+            type="text"
+            id="origen"
+            name="origen"
+            required
+            maxlength="3"
+            value=""
+          />
 
-            <label for="destino">Aeropuerto de destino</label>
-            <input type="text" id="destino" name="destino" required maxlength="3" value="">
+          <label for="destino">Aeropuerto de destino</label>
+          <input
+            type="text"
+            id="destino"
+            name="destino"
+            required
+            maxlength="3"
+            value=""
+          />
 
-            <button type="submit">Enviar</button>
-            <button type="reset">Limpiar</button>
-          </form>
-          <h2 class="origin"></h2>
-          <h2 class="destination"></h2>
-         
+          <button type="submit">Enviar</button>
+          <button type="reset">Eliminar</button>
+        </form>
+        <h2 class="origin"></h2>
+        <h2 class="destination"></h2>
+      </section>
+      <section>
+        <div>
+          <h2 class="airline"></h2>
+          <h2 class="price"></h2>
+        </div>
       </section>
     </main>
     <footer>
-        <a href="./footer/terminosCondiciones.html">Terminos y condiciones generales</a>
-        <a href="./footer/cookies.html">Uso de cookies</a>
-        <a href="./footer/privacidad.html">Política de privacidad</a>
-        <p>A&A2022®</p>
-       
+      <a href="./footer/terminosCondiciones.html"
+        >Terminos y condiciones generales</a
+      >
+      <a href="./footer/cookies.html">Uso de cookies</a>
+      <a href="./footer/privacidad.html">Política de privacidad</a>
+      <p>A&A2022®</p>
     </footer>
-   
   </body>
 </html>
