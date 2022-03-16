@@ -1,5 +1,20 @@
 "use strict";
 
+Date.prototype.nextDay = function () {
+  const date = new Date(this.valueOf());
+  date.setDate(date.getDate() + 1);
+  return date;
+};
+
+function convertDateToApiFormat(date){
+  const year = date.getFullYear();
+  const month = date.getMonth()+1;
+  const monthPadded= month.toString().padStart(2,"0");
+  const day = date.getDate();
+ const apiDate= `${year}-${monthPadded}-${day}`;
+ return apiDate;
+}
+
 function loadFlightOffers(originAirportIata, destinationAirportIata) {
   //Autorizacion de API buscador de vuelos de Amadeus
   fetch("https://test.api.amadeus.com/v1/security/oauth2/token", {
@@ -21,8 +36,13 @@ function loadFlightOffers(originAirportIata, destinationAirportIata) {
       console.log(data);
       const accessToken = data["access_token"];
 
+      const currentDate = new Date();
+      const myApiDate = convertDateToApiFormat(currentDate.nextDay());
+
+
+
       fetch(
-        `https://test.api.amadeus.com/v2/shopping/flight-offers?originLocationCode=${originAirportIata}&destinationLocationCode=${destinationAirportIata}&departureDate=2022-11-01&adults=1&nonStop=false&max=250`,
+        `https://test.api.amadeus.com/v2/shopping/flight-offers?originLocationCode=${originAirportIata}&destinationLocationCode=${destinationAirportIata}&departureDate=${myApiDate}&adults=1&nonStop=false&max=250`,
         {
           method: "GET",
           headers: {
@@ -128,3 +148,6 @@ function displayCheapestFlight(flightOffers) {
   airline.innerText = `Aerolinea: ${cheapestFlightOffer.validatingAirlineCodes[0]}`;
   price.innerText = `Precio: ${cheapestFlightOffer.price.grandTotal} €`;
 }
+
+
+
