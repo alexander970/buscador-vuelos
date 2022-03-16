@@ -84,6 +84,7 @@ function printAeropuertos(e) {
       destinationAirport.innerText = `Aeropuerto de destino: ${airports[destinationAirportIata]}`;
     });
 
+
   this.reset();
 }
 
