@@ -102,8 +102,10 @@ function printAeropuertos(e) {
       if (isCodeIataValid === true) {
         console.log(airports[code]);
       }
-      originAirport.innerText = `Aeropuerto de origen: ${airports[originAirportIata]}`;
-      destinationAirport.innerText = `Aeropuerto de destino: ${airports[destinationAirportIata]}`;
+      const offer = document.querySelector(".offer")
+      offer.innerText = `El vuelo más económico entre ${airports[originAirportIata]} y ${airports[destinationAirportIata]} para mañana es:`
+      /* originAirport.innerText = `Aeropuerto de origen: ${airports[originAirportIata]}`;
+      destinationAirport.innerText = `Aeropuerto de destino: ${airports[destinationAirportIata]}`; */
       loadFlightOffers(originAirportIata, destinationAirportIata);
     });
 
@@ -125,8 +127,6 @@ function displayCheapestFlight(flightOffers) {
 
   const airline = document.querySelector(".airline");
   const price = document.querySelector(".price");
-  const offer = document.querySelector(".offer");
-  offer.innerText = 'El vuelo más económico para mañana es:'
   airline.innerText = `Aerolinea: ${cheapestFlightOffer.validatingAirlineCodes[0]}`;
   price.innerText = `Precio: ${cheapestFlightOffer.price.grandTotal} €`;
   
