@@ -37,9 +37,9 @@ img{
 }
 main{
     padding: 1rem;
-    margin: 2rem
+    margin: 2rem;
     max-width: 500px;
-    margin: auto;
+    margin:auto;
 }
 
 
@@ -127,11 +127,38 @@ footer>p{
     form{
     grid-template-rows: repeat (3, auto);
     grid-template-columns: 1fr 1fr auto auto;
+    gap:1rem;
     }
 
     form > input, font>label{
         grid-column: span 3;
         margin-bottom:0.5rem;
     }
+    section{
+        display:grid;
+        justify-content: center;
+    }
+    h1{
+        text-align: center;
+        font-size: 4rem;
+    }
 
+    form>label{
+        padding:0; 
+    }
+    header{
+        display:flex;
+        justify-content: center;
+        gap:2rem;
+    }
+    img{
+        width: 4rem;
+        height: 4rem;
+    }
+    footer>a{
+        font-size: 1rem
+    }
+    footer>p{
+        font-size: 1rem
+    }
 }
