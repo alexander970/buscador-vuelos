@@ -126,11 +126,12 @@ footer>p{
 @media (min-width: 700px){
     form{
     grid-template-rows: repeat (3, auto);
-    grid-template-columns: 1fr 1 fr auto auto;
+    grid-template-columns: 1fr 1fr auto auto;
     }
 
     form > input, font>label{
         grid-column: span 3;
+        margin-bottom:0.5rem;
     }
 
 }
