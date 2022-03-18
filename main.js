@@ -10,6 +10,22 @@ function convertDateToApiFormat(date) {
   return apiDate;
 }
 
+function convertDateFromApiFormat(rawDate) {
+  const date = new Date(rawDate);
+  const options = {
+    month: "numeric",
+    year: "numeric",
+    day: "numeric",
+    weekday: "long",
+    hour: "numeric",
+    minute: "numeric",
+    hour12: true,
+  };
+  const localDate = date.toLocaleString("es-ES", options);
+
+  return localDate;
+}
+
 async function getFlightOffers(
   accessToken,
   originAirportIata,
@@ -146,7 +162,7 @@ function displayCheapestFlight(
   destinationAirportName,
   airlineName,
   price,
-  departureTime
+  departureDate
 ) {
   const offer = document.querySelector(".offer");
   const timeElement = document.querySelector(".time");
@@ -156,7 +172,7 @@ function displayCheapestFlight(
   offer.innerText = `El vuelo más económico para mañana entre ${originAirportName} y ${destinationAirportName} es:`;
   airlineElement.innerText = `Aerolinea: ${airlineName}`;
   priceElement.innerText = `Precio: ${price} €`;
-  timeElement.innerText = `Horario: ${departureTime}`;
+  timeElement.innerText = `Horario: ${departureDate}`;
 }
 
 function clearCheapestFlight() {
@@ -190,15 +206,16 @@ function getAndDisplayCheapestFlight(
         const airlineName =
           airlineCode in airlines ? airlines[airlineCode] : airlineCode;
         const price = cheapestFlightOffer.price.grandTotal;
-        const departureTime =
+        const departureDate =
           cheapestFlightOffer.itineraries[0].segments[0].departure.at;
+        const localDepartureDate = convertDateFromApiFormat(departureDate);
 
         displayCheapestFlight(
           originAirport.Name,
           destinationAirport.Name,
           airlineName,
           price,
-          departureTime
+          localDepartureDate
         );
       } else {
         offer.innerText = `No hay vuelos para mañana entre ${originAirport.Name} y ${destinationAirport.Name}`;
