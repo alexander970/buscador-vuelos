@@ -27,6 +27,8 @@
             required
             maxlength="3"
             value=""
+            list="airports"
+            placeholder="Código IATA (origen)"
           />
 
           <label for="destino">Aeropuerto de destino</label>
@@ -37,7 +39,16 @@
             required
             maxlength="3"
             value=""
+            list="airports"
+            placeholder="Código IATA (destino)"
           />
+          <datalist id="airports">
+            <option value="ALC">
+            <option value="MAD">
+            <option value="LCG">
+            <option value="MIA">
+            <option value="JFK">
+          </datalist>
 
           <button type="submit">Enviar</button>
           <button type="reset">Eliminar</button>
